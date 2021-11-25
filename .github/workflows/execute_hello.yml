@@ -1,4 +1,6 @@
-name: Execute Hello script
+name: Execute Account script
+
+description: https://github.com/loft-br/auth-roles/blob/a5b15cf81dc694a810ee0a2750d785b000ff3f88/resources/loft.yml
 
 on:
   workflow_dispatch:
@@ -22,6 +24,9 @@ jobs:
         
       - name: Call hello.js
         env:
-          USERNAME: ${{ github.event.inputs.username }}
-          JSON_DATA: ${{ github.event.inputs.json }}
-        run: node hello.js
+          CLEINT_ID: ${{ github.secrets.CLIENT_ID }}
+          CLEINT_SECRETS: ${{ github.secrets.CLIENT_SECRETS }}
+          JSON_DATA: ${{ github.event.inputs.json }}  
+        run: 
+          echo ${{ github.event.inputs.json }} > users.json 
+          node hello.js

@@ -1,6 +1,6 @@
-name: Execute Account script
+name: Execute Account script https://github.com/loft-br/auth-roles/blob/a5b15cf81dc694a810ee0a2750d785b000ff3f88/resources/loft.yml
 
-description: https://github.com/loft-br/auth-roles/blob/a5b15cf81dc694a810ee0a2750d785b000ff3f88/resources/loft.yml
+# description: https://github.com/loft-br/auth-roles/blob/a5b15cf81dc694a810ee0a2750d785b000ff3f88/resources/loft.yml
 
 on:
   workflow_dispatch:

@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       json:
-        description: '{"roles_names": [""],"emails": [ "" ]}'     
+        description: 'json'     
         required: true
-        default: 'error'
+        default: '{"roles_names": [""],"emails": [ "" ]}'
       username:
-        description: 'pass username'
+        description: 'username'
         required: true
-        default: 'error'
+        default: 'Nome do usuário'
 
 jobs:
   run:
@@ -23,4 +23,5 @@ jobs:
       - name: Call hello.js
         env:
           USERNAME: ${{ github.event.inputs.username }}
+          JSON_DATA: ${{ github.event.inputs.json }}
         run: node hello.js

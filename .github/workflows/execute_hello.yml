@@ -2,6 +2,15 @@ name: Execute Hello script
 
 on:
   workflow_dispatch:
+    inputs:
+      json:
+        description: '{"roles_names": [""],"emails": [ "" ]}'     
+        required: true
+        default: 'error'
+      username:
+        description: 'pass username'
+        required: true
+        default: 'error'
 
 jobs:
   run:
@@ -12,4 +21,6 @@ jobs:
         uses: actions/checkout@master
         
       - name: Call hello.js
+        env:
+          USERNAME: ${{ github.event.inputs.username }}
         run: node hello.js
